@@ -612,6 +612,47 @@ main { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
 .ex-rom  { display: block; font-size: .85rem; color: var(--purple); font-style: italic; margin-bottom: .1rem; }
 .ex-en   { display: block; font-size: .85rem; color: #636e72; }
 
+/* ── Sentence Breakdown chips ─────────────────────────────── */
+.bd-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: .75rem;
+  padding-top: .65rem;
+  border-top: 1px dashed #e0d0f0;
+}
+
+.bd-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: .35rem .55rem;
+  border: 2px solid var(--chip-color, #a29bfe);
+  min-width: 52px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+.bd-word   { font-size: 1rem;  font-weight: 800; color: var(--navy); line-height: 1.2; }
+.bd-romaji { font-size: .68rem; color: var(--chip-color, #a29bfe); font-style: italic; margin: .1rem 0; }
+.bd-role   { font-size: .62rem; color: #636e72; text-align: center; line-height: 1.2; }
+
+/* chip colour per word type */
+.bd-topic     { --chip-color: #a29bfe; }
+.bd-subject   { --chip-color: #ff6b9d; }
+.bd-object    { --chip-color: #74b9ff; }
+.bd-direction { --chip-color: #00cec9; }
+.bd-place     { --chip-color: #e17055; }
+.bd-noun      { --chip-color: #636e72; }
+.bd-verb      { --chip-color: #00b894; }
+.bd-adj       { --chip-color: #f39c12; }
+.bd-ending    { --chip-color: #55efc4; border-style: dashed; }
+.bd-neg       { --chip-color: #d63031; }
+.bd-question  { --chip-color: #0984e3; }
+.bd-connector { --chip-color: #e17055; border-style: dashed; }
+.bd-adverb    { --chip-color: #b2bec3; }
+
 /* ── Tip Banner ───────────────────────────────────────────── */
 .tip-banner {
   background: linear-gradient(90deg, #fdf6ff, #fff5fb);
@@ -805,6 +846,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
   .kana-card { width: 68px; min-height: 68px; }
   .kana-char { font-size: 1.7rem; }
 
+  .bd-sentence        { gap: .3rem; }
+  .bd-chip            { min-width: 44px; padding: .25rem .4rem; }
+  .bd-word            { font-size: .9rem; }
   .lesson-pattern-row { grid-template-columns: 1fr; gap: .2rem; }
   .lesson-vocab-grid  { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
   .tips-grid          { grid-template-columns: 1fr; }

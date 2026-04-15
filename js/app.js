@@ -428,6 +428,12 @@ function buildGrammarSection() {
             <span class="ex-jp">${e.jp}</span>
             <span class="ex-rom">${e.romaji}</span>
             <span class="ex-en">${e.en}</span>
+            ${e.breakdown ? `<div class="bd-sentence">${e.breakdown.map(b => `
+              <div class="bd-chip bd-${b.type}">
+                <div class="bd-word">${b.word}</div>
+                <div class="bd-romaji">${b.romaji}</div>
+                <div class="bd-role">${b.role}</div>
+              </div>`).join('')}</div>` : ''}
           </div>`).join('')}
         </div>` : ''}
       </div>

@@ -354,9 +354,30 @@ const GRAMMAR = [
       <strong>English:</strong> I (S) eat (V) sushi (O).<br>
       <strong>Japanese:</strong> 私は (I-S) すしを (sushi-O) 食べます。(eat-V)`,
     examples: [
-      { jp:'私は　りんごを　食べます。', romaji:'Watashi wa ringo wo tabemasu.', en:'I eat an apple.' },
-      { jp:'ねこが　さかなを　食べます。', romaji:'Neko ga sakana wo tabemasu.', en:'The cat eats fish.' },
-      { jp:'田中さんは　えいごを　はなします。', romaji:'Tanaka-san wa eigo wo hanashimasu.', en:'Tanaka speaks English.' },
+      { jp:'私は　りんごを　食べます。', romaji:'Watashi wa ringo wo tabemasu.', en:'I eat an apple.',
+        breakdown:[
+          {word:'私',    romaji:'watashi', role:'I / me',    type:'noun'},
+          {word:'は',    romaji:'wa',      role:'topic',     type:'topic'},
+          {word:'りんご',romaji:'ringo',   role:'apple',     type:'noun'},
+          {word:'を',    romaji:'wo',      role:'object',    type:'object'},
+          {word:'食べます',romaji:'tabemasu',role:'eat',     type:'verb'},
+        ]},
+      { jp:'ねこが　さかなを　食べます。', romaji:'Neko ga sakana wo tabemasu.', en:'The cat eats fish.',
+        breakdown:[
+          {word:'ねこ',  romaji:'neko',   role:'cat',    type:'noun'},
+          {word:'が',    romaji:'ga',     role:'subject',type:'subject'},
+          {word:'さかな',romaji:'sakana', role:'fish',   type:'noun'},
+          {word:'を',    romaji:'wo',     role:'object', type:'object'},
+          {word:'食べます',romaji:'tabemasu',role:'eat', type:'verb'},
+        ]},
+      { jp:'田中さんは　えいごを　はなします。', romaji:'Tanaka-san wa eigo wo hanashimasu.', en:'Tanaka speaks English.',
+        breakdown:[
+          {word:'田中さん',romaji:'Tanaka-san',role:'Tanaka', type:'noun'},
+          {word:'は',    romaji:'wa',       role:'topic',   type:'topic'},
+          {word:'えいご',romaji:'eigo',     role:'English', type:'noun'},
+          {word:'を',    romaji:'wo',       role:'object',  type:'object'},
+          {word:'はなします',romaji:'hanashimasu',role:'speaks',type:'verb'},
+        ]},
     ]
   },
   {
@@ -383,10 +404,26 @@ const GRAMMAR = [
       <strong>です (desu)</strong> — polite "to be" (used with nouns & na-adjectives)<br>
       <strong>～ます (masu)</strong> — polite present / future verb ending`,
     examples: [
-      { jp:'これはペンです。',     romaji:'Kore wa pen desu.',       en:'This is a pen.' },
-      { jp:'わたしは学生です。',   romaji:'Watashi wa gakusei desu.',en:'I am a student.' },
-      { jp:'毎日学校に行きます。', romaji:'Mainichi gakkou ni ikimasu.', en:'I go to school every day.' },
-      { jp:'日本語を勉強します。', romaji:'Nihongo wo benkyou shimasu.', en:'I study Japanese.' },
+      { jp:'これはペンです。', romaji:'Kore wa pen desu.', en:'This is a pen.',
+        breakdown:[
+          {word:'これ', romaji:'kore', role:'this',    type:'noun'},
+          {word:'は',   romaji:'wa',   role:'topic',   type:'topic'},
+          {word:'ペン', romaji:'pen',  role:'pen',     type:'noun'},
+          {word:'です', romaji:'desu', role:'polite "is"', type:'ending'},
+        ]},
+      { jp:'わたしは学生です。', romaji:'Watashi wa gakusei desu.', en:'I am a student.',
+        breakdown:[
+          {word:'わたし', romaji:'watashi',  role:'I / me',   type:'noun'},
+          {word:'は',     romaji:'wa',       role:'topic',    type:'topic'},
+          {word:'学生',   romaji:'gakusei',  role:'student',  type:'noun'},
+          {word:'です',   romaji:'desu',     role:'polite "is"', type:'ending'},
+        ]},
+      { jp:'日本語を勉強します。', romaji:'Nihongo wo benkyou shimasu.', en:'I study Japanese.',
+        breakdown:[
+          {word:'日本語', romaji:'nihongo',    role:'Japanese',  type:'noun'},
+          {word:'を',     romaji:'wo',         role:'object',    type:'object'},
+          {word:'勉強します',romaji:'benkyou shimasu',role:'study (polite)',type:'verb'},
+        ]},
     ]
   },
   {
@@ -397,10 +434,26 @@ const GRAMMAR = [
       <strong>い-adjectives</strong> end in い and modify directly: 大きい犬 (big dog)<br>
       <strong>な-adjectives</strong> need な before a noun: きれいな花 (beautiful flower)`,
     examples: [
-      { jp:'このケーキはおいしい。',   romaji:'Kono keeki wa oishii.',      en:'This cake is delicious. (i-adj)' },
-      { jp:'あの人はきれいです。',      romaji:'Ano hito wa kirei desu.',    en:'That person is beautiful. (na-adj)' },
-      { jp:'大きいねこがいます。',      romaji:'Ookii neko ga imasu.',       en:'There is a big cat. (i-adj + noun)' },
-      { jp:'しずかな図書館です。',      romaji:'Shizuka na toshokan desu.',  en:'It is a quiet library. (na-adj + noun)' },
+      { jp:'このケーキはおいしい。', romaji:'Kono keeki wa oishii.', en:'This cake is delicious. (i-adj)',
+        breakdown:[
+          {word:'この',   romaji:'kono',   role:'this',       type:'noun'},
+          {word:'ケーキ', romaji:'keeki',  role:'cake',       type:'noun'},
+          {word:'は',     romaji:'wa',     role:'topic',      type:'topic'},
+          {word:'おいしい',romaji:'oishii',role:'delicious',  type:'adj'},
+        ]},
+      { jp:'あの人はきれいです。', romaji:'Ano hito wa kirei desu.', en:'That person is beautiful. (na-adj)',
+        breakdown:[
+          {word:'あの人', romaji:'ano hito', role:'that person', type:'noun'},
+          {word:'は',     romaji:'wa',       role:'topic',       type:'topic'},
+          {word:'きれい', romaji:'kirei',    role:'beautiful',   type:'adj'},
+          {word:'です',   romaji:'desu',     role:'polite "is"', type:'ending'},
+        ]},
+      { jp:'しずかな図書館です。', romaji:'Shizuka na toshokan desu.', en:'It is a quiet library. (na-adj + noun)',
+        breakdown:[
+          {word:'しずかな',romaji:'shizuka na',role:'quiet (na-adj)',type:'adj'},
+          {word:'図書館', romaji:'toshokan',  role:'library',     type:'noun'},
+          {word:'です',   romaji:'desu',      role:'polite "is"', type:'ending'},
+        ]},
     ]
   },
   {
@@ -411,9 +464,25 @@ const GRAMMAR = [
       <strong>です → じゃないです / ではありません</strong><br>
       <strong>～ます → ～ません</strong>`,
     examples: [
-      { jp:'私は学生じゃないです。',  romaji:'Watashi wa gakusei ja nai desu.', en:'I am NOT a student.' },
-      { jp:'日本語がわかりません。',  romaji:'Nihongo ga wakarimasen.',       en:'I don\'t understand Japanese.' },
-      { jp:'肉は食べません。',        romaji:'Niku wa tabemasen.',            en:'I don\'t eat meat.' },
+      { jp:'私は学生じゃないです。', romaji:'Watashi wa gakusei ja nai desu.', en:'I am NOT a student.',
+        breakdown:[
+          {word:'私',       romaji:'watashi',       role:'I / me',      type:'noun'},
+          {word:'は',       romaji:'wa',            role:'topic',       type:'topic'},
+          {word:'学生',     romaji:'gakusei',       role:'student',     type:'noun'},
+          {word:'じゃないです',romaji:'ja nai desu',role:'am NOT (neg)',type:'neg'},
+        ]},
+      { jp:'日本語がわかりません。', romaji:'Nihongo ga wakarimasen.', en:'I don\'t understand Japanese.',
+        breakdown:[
+          {word:'日本語',    romaji:'nihongo',      role:'Japanese',        type:'noun'},
+          {word:'が',        romaji:'ga',           role:'subject',         type:'subject'},
+          {word:'わかりません',romaji:'wakarimasen',role:'don\'t understand',type:'neg'},
+        ]},
+      { jp:'肉は食べません。', romaji:'Niku wa tabemasen.', en:'I don\'t eat meat.',
+        breakdown:[
+          {word:'肉',       romaji:'niku',      role:'meat',         type:'noun'},
+          {word:'は',       romaji:'wa',        role:'topic',        type:'topic'},
+          {word:'食べません',romaji:'tabemasen', role:'don\'t eat',   type:'neg'},
+        ]},
     ]
   },
   {
@@ -422,9 +491,22 @@ const GRAMMAR = [
     color: '#74b9ff',
     explanation: `In Japanese, just add <strong>か (ka)</strong> to the end of a statement to make it a question! No word reordering needed.`,
     examples: [
-      { jp:'これはペンですか？',       romaji:'Kore wa pen desu ka?',         en:'Is this a pen?' },
-      { jp:'日本語がわかりますか？',   romaji:'Nihongo ga wakarimasu ka?',    en:'Do you understand Japanese?' },
-      { jp:'明日、学校に行きますか？', romaji:'Ashita, gakkou ni ikimasu ka?',en:'Will you go to school tomorrow?' },
+      { jp:'これはペンですか？', romaji:'Kore wa pen desu ka?', en:'Is this a pen?',
+        breakdown:[
+          {word:'これ', romaji:'kore', role:'this',         type:'noun'},
+          {word:'は',   romaji:'wa',   role:'topic',        type:'topic'},
+          {word:'ペン', romaji:'pen',  role:'pen',          type:'noun'},
+          {word:'です', romaji:'desu', role:'polite "is"',  type:'ending'},
+          {word:'か',   romaji:'ka',   role:'? (question)', type:'question'},
+        ]},
+      { jp:'日本語がわかりますか？', romaji:'Nihongo ga wakarimasu ka?', en:'Do you understand Japanese?',
+        breakdown:[
+          {word:'日本語',    romaji:'nihongo',    role:'Japanese',    type:'noun'},
+          {word:'が',        romaji:'ga',         role:'subject',     type:'subject'},
+          {word:'わかります',romaji:'wakarimasu', role:'understand',  type:'verb'},
+          {word:'か',        romaji:'ka',         role:'? (question)',type:'question'},
+        ]},
+      { jp:'明日、学校に行きますか？', romaji:'Ashita, gakkou ni ikimasu ka?', en:'Will you go to school tomorrow?' },
     ]
   },
   {
@@ -435,9 +517,23 @@ const GRAMMAR = [
       <strong>あります (arimasu)</strong> — for inanimate things (objects, places)<br>
       <strong>います (imasu)</strong> — for living things (people, animals)`,
     examples: [
-      { jp:'つくえの上に本があります。', romaji:'Tsukue no ue ni hon ga arimasu.', en:'There is a book ON the desk.' },
-      { jp:'公園に子供がいます。',       romaji:'Kouen ni kodomo ga imasu.',     en:'There are children IN the park.' },
-      { jp:'冷蔵庫にジュースがありますか？',romaji:'Reizouko ni juusu ga arimasu ka?',en:'Is there juice in the fridge?' },
+      { jp:'つくえの上に本があります。', romaji:'Tsukue no ue ni hon ga arimasu.', en:'There is a book ON the desk.',
+        breakdown:[
+          {word:'つくえの上',romaji:'tsukue no ue',role:'on the desk',    type:'noun'},
+          {word:'に',       romaji:'ni',          role:'location',       type:'direction'},
+          {word:'本',       romaji:'hon',         role:'book',           type:'noun'},
+          {word:'が',       romaji:'ga',          role:'subject',        type:'subject'},
+          {word:'あります', romaji:'arimasu',     role:'exists (thing)', type:'verb'},
+        ]},
+      { jp:'公園に子供がいます。', romaji:'Kouen ni kodomo ga imasu.', en:'There are children IN the park.',
+        breakdown:[
+          {word:'公園',   romaji:'kouen',  role:'park',              type:'noun'},
+          {word:'に',     romaji:'ni',     role:'location',          type:'direction'},
+          {word:'子供',   romaji:'kodomo', role:'children',          type:'noun'},
+          {word:'が',     romaji:'ga',     role:'subject',           type:'subject'},
+          {word:'います', romaji:'imasu',  role:'exists (living)',   type:'verb'},
+        ]},
+      { jp:'冷蔵庫にジュースがありますか？', romaji:'Reizouko ni juusu ga arimasu ka?', en:'Is there juice in the fridge?' },
     ]
   },
   {
@@ -449,11 +545,45 @@ const GRAMMAR = [
       <strong>〜がだいすきです</strong> = I love ~.<br>
       For activities, attach <strong>こと</strong> after the verb: ねること (sleeping), よむこと (reading).`,
     examples: [
-      { jp:'すしがすきです。',           romaji:'Sushi ga suki desu.',             en:'I like sushi.' },
-      { jp:'べんきょうがきらいです。',   romaji:'Benkyō ga kirai desu.',           en:'I dislike studying.' },
-      { jp:'ねることがだいすきです。',   romaji:'Neru koto ga daisuki desu.',      en:'I love sleeping.' },
-      { jp:'なにがすきですか？',         romaji:'Nani ga suki desu ka?',           en:'What do you like?' },
-      { jp:'どんな食べものがすきですか？',romaji:'Donna tabemono ga suki desu ka?',en:'What kind of food do you like?' },
+      { jp:'すしがすきです。', romaji:'Sushi ga suki desu.', en:'I like sushi.',
+        breakdown:[
+          {word:'すし', romaji:'sushi', role:'sushi (the thing liked)', type:'noun'},
+          {word:'が',   romaji:'ga',    role:'subject marker',          type:'subject'},
+          {word:'すき', romaji:'suki',  role:'like / pleasing',         type:'adj'},
+          {word:'です', romaji:'desu',  role:'polite ending',           type:'ending'},
+        ]},
+      { jp:'べんきょうがきらいです。', romaji:'Benkyō ga kirai desu.', en:'I dislike studying.',
+        breakdown:[
+          {word:'べんきょう',romaji:'benkyō', role:'studying',          type:'noun'},
+          {word:'が',        romaji:'ga',     role:'subject marker',    type:'subject'},
+          {word:'きらい',    romaji:'kirai',  role:'dislike / hate',    type:'adj'},
+          {word:'です',      romaji:'desu',   role:'polite ending',     type:'ending'},
+        ]},
+      { jp:'ねることがだいすきです。', romaji:'Neru koto ga daisuki desu.', en:'I love sleeping.',
+        breakdown:[
+          {word:'ねる',  romaji:'neru',     role:'to sleep (verb)',       type:'verb'},
+          {word:'こと',  romaji:'koto',     role:'"the act of" (nominaliser)', type:'noun'},
+          {word:'が',    romaji:'ga',       role:'subject marker',        type:'subject'},
+          {word:'だいすき',romaji:'daisuki',role:'love / really like',    type:'adj'},
+          {word:'です',  romaji:'desu',     role:'polite ending',         type:'ending'},
+        ]},
+      { jp:'なにがすきですか？', romaji:'Nani ga suki desu ka?', en:'What do you like?',
+        breakdown:[
+          {word:'なに', romaji:'nani', role:'what',          type:'noun'},
+          {word:'が',   romaji:'ga',   role:'subject marker',type:'subject'},
+          {word:'すき', romaji:'suki', role:'like',          type:'adj'},
+          {word:'です', romaji:'desu', role:'polite ending', type:'ending'},
+          {word:'か',   romaji:'ka',   role:'? (question)',  type:'question'},
+        ]},
+      { jp:'どんな食べものがすきですか？', romaji:'Donna tabemono ga suki desu ka?', en:'What kind of food do you like?',
+        breakdown:[
+          {word:'どんな',   romaji:'donna',    role:'what kind of',  type:'noun'},
+          {word:'食べもの', romaji:'tabemono', role:'food',          type:'noun'},
+          {word:'が',       romaji:'ga',       role:'subject marker',type:'subject'},
+          {word:'すき',     romaji:'suki',     role:'like',          type:'adj'},
+          {word:'です',     romaji:'desu',     role:'polite ending', type:'ending'},
+          {word:'か',       romaji:'ka',       role:'? (question)',  type:'question'},
+        ]},
     ]
   },
   {
@@ -464,11 +594,31 @@ const GRAMMAR = [
       <strong>〜たいです</strong> = I want to [do something] — attach たい to the verb stem.<br>
       Negative: ほしくないです / 〜たくないです.`,
     examples: [
-      { jp:'みずがほしいです。',           romaji:'Mizu ga hoshii desu.',           en:'I want water.' },
-      { jp:'にほんにいきたいです。',       romaji:'Nihon ni ikitai desu.',          en:'I want to go to Japan.' },
-      { jp:'なにかたべたいです。',         romaji:'Nanika tabetai desu.',           en:'I want to eat something.' },
-      { jp:'もっとべんきょうしたいです。', romaji:'Motto benkyō shitai desu.',      en:'I want to study more.' },
-      { jp:'ねたくないです。',             romaji:'Netakunai desu.',               en:'I don\'t want to sleep.' },
+      { jp:'みずがほしいです。', romaji:'Mizu ga hoshii desu.', en:'I want water.',
+        breakdown:[
+          {word:'みず',   romaji:'mizu',   role:'water',        type:'noun'},
+          {word:'が',     romaji:'ga',     role:'subject marker',type:'subject'},
+          {word:'ほしい', romaji:'hoshii', role:'want (thing)',  type:'adj'},
+          {word:'です',   romaji:'desu',   role:'polite ending', type:'ending'},
+        ]},
+      { jp:'にほんにいきたいです。', romaji:'Nihon ni ikitai desu.', en:'I want to go to Japan.',
+        breakdown:[
+          {word:'にほん',   romaji:'nihon',   role:'Japan',              type:'noun'},
+          {word:'に',       romaji:'ni',      role:'direction (to)',     type:'direction'},
+          {word:'いき',     romaji:'iki',     role:'go (verb stem)',     type:'verb'},
+          {word:'たい',     romaji:'tai',     role:'want to',            type:'adj'},
+          {word:'です',     romaji:'desu',    role:'polite ending',      type:'ending'},
+        ]},
+      { jp:'もっとべんきょうしたいです。', romaji:'Motto benkyō shitai desu.', en:'I want to study more.',
+        breakdown:[
+          {word:'もっと',     romaji:'motto',   role:'more',             type:'adverb'},
+          {word:'べんきょう', romaji:'benkyō',  role:'study',            type:'noun'},
+          {word:'し',         romaji:'shi',     role:'do (verb stem)',   type:'verb'},
+          {word:'たい',       romaji:'tai',     role:'want to',          type:'adj'},
+          {word:'です',       romaji:'desu',    role:'polite ending',    type:'ending'},
+        ]},
+      { jp:'なにかたべたいです。',  romaji:'Nanika tabetai desu.',    en:'I want to eat something.' },
+      { jp:'ねたくないです。',      romaji:'Netakunai desu.',         en:'I don\'t want to sleep.' },
     ]
   },
   {
@@ -479,11 +629,35 @@ const GRAMMAR = [
       Negative: <strong>〜ができません</strong> = I cannot ~.<br>
       This is one of the most useful patterns for talking about yourself!`,
     examples: [
-      { jp:'にほんごができます。',           romaji:'Nihongo ga dekimasu.',             en:'I can [speak] Japanese.' },
-      { jp:'およぐことができます。',         romaji:'Oyogu koto ga dekimasu.',          en:'I can swim.' },
-      { jp:'うんてんができません。',         romaji:'Unten ga dekimasen.',             en:'I cannot drive.' },
-      { jp:'ギターをひくことができます。',   romaji:'Gitā wo hiku koto ga dekimasu.',  en:'I can play guitar.' },
-      { jp:'すこしにほんごがはなせます。',   romaji:'Sukoshi nihongo ga hanasemasu.',   en:'I can speak a little Japanese.' },
+      { jp:'にほんごができます。', romaji:'Nihongo ga dekimasu.', en:'I can [speak] Japanese.',
+        breakdown:[
+          {word:'にほんご',  romaji:'nihongo',   role:'Japanese',       type:'noun'},
+          {word:'が',        romaji:'ga',        role:'subject marker', type:'subject'},
+          {word:'できます',  romaji:'dekimasu',  role:'can do / able',  type:'verb'},
+        ]},
+      { jp:'およぐことができます。', romaji:'Oyogu koto ga dekimasu.', en:'I can swim.',
+        breakdown:[
+          {word:'およぐ',  romaji:'oyogu',    role:'swim (verb)',           type:'verb'},
+          {word:'こと',    romaji:'koto',     role:'"the act of"',          type:'noun'},
+          {word:'が',      romaji:'ga',       role:'subject marker',        type:'subject'},
+          {word:'できます',romaji:'dekimasu', role:'can do / able',         type:'verb'},
+        ]},
+      { jp:'うんてんができません。', romaji:'Unten ga dekimasen.', en:'I cannot drive.',
+        breakdown:[
+          {word:'うんてん',   romaji:'unten',    role:'driving',              type:'noun'},
+          {word:'が',         romaji:'ga',       role:'subject marker',       type:'subject'},
+          {word:'できません', romaji:'dekimasen',role:'cannot (negative)',     type:'neg'},
+        ]},
+      { jp:'ギターをひくことができます。', romaji:'Gitā wo hiku koto ga dekimasu.', en:'I can play guitar.',
+        breakdown:[
+          {word:'ギター',  romaji:'gitā',     role:'guitar',              type:'noun'},
+          {word:'を',      romaji:'wo',       role:'object',              type:'object'},
+          {word:'ひく',    romaji:'hiku',     role:'play (instrument)',   type:'verb'},
+          {word:'こと',    romaji:'koto',     role:'"the act of"',        type:'noun'},
+          {word:'が',      romaji:'ga',       role:'subject marker',      type:'subject'},
+          {word:'できます',romaji:'dekimasu', role:'can do / able',       type:'verb'},
+        ]},
+      { jp:'すこしにほんごがはなせます。', romaji:'Sukoshi nihongo ga hanasemasu.', en:'I can speak a little Japanese.' },
     ]
   },
   {
@@ -494,11 +668,25 @@ const GRAMMAR = [
       <em>Very useful in class, restaurants, shops, and daily life!</em><br>
       More polite: <strong>〜ていただけますか</strong> (Could you please ~?)`,
     examples: [
-      { jp:'もう一度いってください。',     romaji:'Mō ichido itte kudasai.',       en:'Please say it again.' },
-      { jp:'ゆっくりはなしてください。',   romaji:'Yukkuri hanashite kudasai.',    en:'Please speak slowly.' },
-      { jp:'かいてください。',             romaji:'Kaite kudasai.',               en:'Please write it.' },
-      { jp:'まってください。',             romaji:'Matte kudasai.',               en:'Please wait.' },
-      { jp:'みせてください。',             romaji:'Misete kudasai.',              en:'Please show me.' },
+      { jp:'もう一度いってください。', romaji:'Mō ichido itte kudasai.', en:'Please say it again.',
+        breakdown:[
+          {word:'もう一度',  romaji:'mō ichido', role:'once more',       type:'adverb'},
+          {word:'いって',    romaji:'itte',      role:'say (て-form)',   type:'verb'},
+          {word:'ください',  romaji:'kudasai',   role:'please (request)',type:'ending'},
+        ]},
+      { jp:'ゆっくりはなしてください。', romaji:'Yukkuri hanashite kudasai.', en:'Please speak slowly.',
+        breakdown:[
+          {word:'ゆっくり',  romaji:'yukkuri',    role:'slowly',         type:'adverb'},
+          {word:'はなして',  romaji:'hanashite',  role:'speak (て-form)',type:'verb'},
+          {word:'ください',  romaji:'kudasai',    role:'please',         type:'ending'},
+        ]},
+      { jp:'かいてください。', romaji:'Kaite kudasai.', en:'Please write it.',
+        breakdown:[
+          {word:'かいて',   romaji:'kaite',   role:'write (て-form)', type:'verb'},
+          {word:'ください', romaji:'kudasai', role:'please',          type:'ending'},
+        ]},
+      { jp:'まってください。', romaji:'Matte kudasai.', en:'Please wait.' },
+      { jp:'みせてください。', romaji:'Misete kudasai.', en:'Please show me.' },
     ]
   },
   {
@@ -511,10 +699,44 @@ const GRAMMAR = [
       <strong>だから</strong> = so / therefore (result)<br>
       <strong>それから</strong> = and then (sequence of actions)`,
     examples: [
-      { jp:'すしがすきです。そして、ラーメンもすきです。',          romaji:'Sushi ga suki desu. Soshite, rāmen mo suki desu.',         en:'I like sushi. And I also like ramen.' },
-      { jp:'にほんごをべんきょうします。でも、むずかしいです。',    romaji:'Nihongo wo benkyō shimasu. Demo, muzukashii desu.',         en:'I study Japanese. But it\'s difficult.' },
-      { jp:'おなかがすきました。だから、たべます。',                romaji:'Onaka ga sukimashita. Dakara, tabemasu.',                   en:'I\'m hungry. So I\'ll eat.' },
-      { jp:'あさごはんをたべました。それから、がっこうにいきました。',romaji:'Asagohan wo tabemashita. Sorekara, gakkō ni ikimashita.',  en:'I ate breakfast. Then I went to school.' },
+      { jp:'すしがすきです。そして、ラーメンもすきです。',
+        romaji:'Sushi ga suki desu. Soshite, rāmen mo suki desu.',
+        en:'I like sushi. And I also like ramen.',
+        breakdown:[
+          {word:'すし',   romaji:'sushi',   role:'sushi',        type:'noun'},
+          {word:'が',     romaji:'ga',      role:'subject',      type:'subject'},
+          {word:'すき',   romaji:'suki',    role:'like',         type:'adj'},
+          {word:'です。', romaji:'desu.',   role:'polite ending',type:'ending'},
+          {word:'そして', romaji:'soshite', role:'and / also',   type:'connector'},
+          {word:'ラーメン',romaji:'rāmen',  role:'ramen',        type:'noun'},
+          {word:'も',     romaji:'mo',      role:'also / too',   type:'topic'},
+          {word:'すき',   romaji:'suki',    role:'like',         type:'adj'},
+          {word:'です',   romaji:'desu',    role:'polite ending',type:'ending'},
+        ]},
+      { jp:'にほんごをべんきょうします。でも、むずかしいです。',
+        romaji:'Nihongo wo benkyō shimasu. Demo, muzukashii desu.',
+        en:'I study Japanese. But it\'s difficult.',
+        breakdown:[
+          {word:'にほんご',   romaji:'nihongo',  role:'Japanese',     type:'noun'},
+          {word:'を',         romaji:'wo',       role:'object',       type:'object'},
+          {word:'べんきょうします',romaji:'benkyō shimasu',role:'study',type:'verb'},
+          {word:'でも',       romaji:'demo',     role:'but / however',type:'connector'},
+          {word:'むずかしい', romaji:'muzukashii',role:'difficult',   type:'adj'},
+          {word:'です',       romaji:'desu',     role:'polite ending',type:'ending'},
+        ]},
+      { jp:'おなかがすきました。だから、たべます。',
+        romaji:'Onaka ga sukimashita. Dakara, tabemasu.',
+        en:'I\'m hungry. So I\'ll eat.',
+        breakdown:[
+          {word:'おなか',   romaji:'onaka',   role:'stomach',         type:'noun'},
+          {word:'が',       romaji:'ga',      role:'subject',         type:'subject'},
+          {word:'すきました',romaji:'sukimashita',role:'got empty (hungry)',type:'verb'},
+          {word:'だから',   romaji:'dakara',  role:'so / therefore',  type:'connector'},
+          {word:'たべます', romaji:'tabemasu',role:'(I\'ll) eat',     type:'verb'},
+        ]},
+      { jp:'あさごはんをたべました。それから、がっこうにいきました。',
+        romaji:'Asagohan wo tabemashita. Sorekara, gakkō ni ikimashita.',
+        en:'I ate breakfast. Then I went to school.' },
     ]
   },
 ];
