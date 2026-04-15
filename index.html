@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌸 Nihongo Fun! — Learn Japanese</title>
+  <meta name="description" content="A fun, colorful way to learn Japanese! Hiragana, Katakana, Kanji, vocabulary, grammar, and conversation phrases.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header>
+  <div class="header-content">
+    <div class="logo" onclick="showSection('home')" style="cursor:pointer">
+      <span class="logo-jp">日本語</span>
+      <span class="logo-en">Nihongo Fun!</span>
+    </div>
+    <nav>
+      <button class="nav-btn active"  data-section="home">🏠 Home</button>
+      <button class="nav-btn" data-section="hiragana">あ Hiragana</button>
+      <button class="nav-btn" data-section="katakana">ア Katakana</button>
+      <button class="nav-btn" data-section="kanji">漢 Kanji</button>
+      <button class="nav-btn" data-section="words">📝 Words</button>
+      <button class="nav-btn" data-section="grammar">📖 Grammar</button>
+      <button class="nav-btn" data-section="phrases">💬 Phrases</button>
+      <button class="nav-btn" data-section="lessons">📚 Lessons</button>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+  <!-- Mobile nav -->
+  <div id="mobile-menu">
+    <button class="nav-btn active"  data-section="home">🏠 Home</button>
+    <button class="nav-btn" data-section="hiragana">あ Hiragana</button>
+    <button class="nav-btn" data-section="katakana">ア Katakana</button>
+    <button class="nav-btn" data-section="kanji">漢 Kanji</button>
+    <button class="nav-btn" data-section="words">📝 Words</button>
+    <button class="nav-btn" data-section="grammar">📖 Grammar</button>
+    <button class="nav-btn" data-section="phrases">💬 Phrases</button>
+    <button class="nav-btn" data-section="lessons">📚 Lessons</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════════════════════════════════════════════
+     HOME
+══════════════════════════════════════════════════════════ -->
+<section id="home" class="section active">
+  <div class="hero">
+    <div class="hero-text">
+      <h1>いらっしゃい！<br><span>Welcome!</span></h1>
+      <p>Start your Japanese adventure! Learn to read, write, and speak Japanese — from your very first character to full conversations.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary"   onclick="showSection('hiragana')">Start Learning →</button>
+        <button class="btn btn-secondary" onclick="showSection('phrases')">Learn Phrases 💬</button>
+      </div>
+    </div>
+    <div class="hero-chars">
+      <div class="floating-char" style="--delay:0s">あ</div>
+      <div class="floating-char" style="--delay:.4s">ア</div>
+      <div class="floating-char" style="--delay:.8s">漢</div>
+      <div class="floating-char" style="--delay:1.2s">字</div>
+      <div class="floating-char" style="--delay:1.6s">日</div>
+      <div class="floating-char" style="--delay:2.0s">本</div>
+    </div>
+  </div>
+
+  <div class="home-cards">
+    <div class="home-card hiragana-color" onclick="showSection('hiragana')">
+      <div class="card-char">あ</div>
+      <h3>Hiragana</h3>
+      <p>46 core characters + chart, flashcards & quiz</p>
+    </div>
+    <div class="home-card katakana-color" onclick="showSection('katakana')">
+      <div class="card-char">ア</div>
+      <h3>Katakana</h3>
+      <p>46 characters for foreign words</p>
+    </div>
+    <div class="home-card kanji-color" onclick="showSection('kanji')">
+      <div class="card-char">漢</div>
+      <h3>Kanji</h3>
+      <p>Essential kanji by category</p>
+    </div>
+    <div class="home-card words-color" onclick="showSection('words')">
+      <div class="card-char">語</div>
+      <h3>Vocabulary</h3>
+      <p>Words for food, animals, family & more</p>
+    </div>
+    <div class="home-card grammar-color" onclick="showSection('grammar')">
+      <div class="card-char">文</div>
+      <h3>Grammar</h3>
+      <p>SOV order, particles, verb forms</p>
+    </div>
+    <div class="home-card phrases-color" onclick="showSection('phrases')">
+      <div class="card-char">話</div>
+      <h3>Phrases</h3>
+      <p>Real conversation phrases for every situation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     HIRAGANA
+══════════════════════════════════════════════════════════ -->
+<section id="hiragana" class="section">
+  <div class="section-header hira-bg">
+    <h2>あ Hiragana</h2>
+    <p>The foundation of Japanese writing — master these 46 characters first!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Hiragana is used for native Japanese words and grammar particles.
+    Click any character in the chart to see an example. Use <strong>Flashcards</strong> to drill, and <strong>Quiz</strong> to test yourself!
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-group="hira-tabs" data-tab="hira-chart">📊 Chart</button>
+    <button class="tab-btn"        data-group="hira-tabs" data-tab="hira-fc">🃏 Flashcards</button>
+    <button class="tab-btn"        data-group="hira-tabs" data-tab="hira-quiz-tab">🎯 Quiz</button>
+  </div>
+
+  <!-- Chart -->
+  <div id="hira-chart" class="tab-panel hira-tabs active">
+    <div id="hiragana-chart-grid"></div>
+  </div>
+
+  <!-- Flashcards -->
+  <div id="hira-fc" class="tab-panel hira-tabs">
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="hira-card" onclick="flipCard('hira')">
+        <div class="fc-inner">
+          <div class="fc-front" id="hira-fc-front"></div>
+          <div class="fc-back"  id="hira-fc-back"></div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="btn btn-secondary" onclick="prevCard('hira')">← Prev</button>
+        <span class="fc-counter" id="hira-fc-counter">1 / 46</span>
+        <button class="btn btn-primary"   onclick="nextCard('hira')">Next →</button>
+      </div>
+      <button class="btn btn-outline" onclick="shuffleCards('hira')">🔀 Shuffle</button>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div id="hira-quiz-tab" class="tab-panel hira-tabs">
+    <div class="quiz-wrap">
+      <div id="hira-quiz-inner"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     KATAKANA
+══════════════════════════════════════════════════════════ -->
+<section id="katakana" class="section">
+  <div class="section-header kata-bg">
+    <h2>ア Katakana</h2>
+    <p>Used for foreign loan words, emphasis, and onomatopoeia!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Katakana looks more angular than Hiragana but represents the same sounds.
+    Great for reading food menus, brand names, and foreign words like <strong>コーヒー</strong> (koohii = coffee)!
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-group="kata-tabs" data-tab="kata-chart">📊 Chart</button>
+    <button class="tab-btn"        data-group="kata-tabs" data-tab="kata-fc">🃏 Flashcards</button>
+    <button class="tab-btn"        data-group="kata-tabs" data-tab="kata-quiz-tab">🎯 Quiz</button>
+  </div>
+
+  <div id="kata-chart" class="tab-panel kata-tabs active">
+    <div id="katakana-chart-grid"></div>
+  </div>
+
+  <div id="kata-fc" class="tab-panel kata-tabs">
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="kata-card" onclick="flipCard('kata')">
+        <div class="fc-inner">
+          <div class="fc-front" id="kata-fc-front"></div>
+          <div class="fc-back"  id="kata-fc-back"></div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="btn btn-secondary" onclick="prevCard('kata')">← Prev</button>
+        <span class="fc-counter" id="kata-fc-counter">1 / 46</span>
+        <button class="btn btn-primary"   onclick="nextCard('kata')">Next →</button>
+      </div>
+      <button class="btn btn-outline" onclick="shuffleCards('kata')">🔀 Shuffle</button>
+    </div>
+  </div>
+
+  <div id="kata-quiz-tab" class="tab-panel kata-tabs">
+    <div class="quiz-wrap">
+      <div id="kata-quiz-inner"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     KANJI
+══════════════════════════════════════════════════════════ -->
+<section id="kanji" class="section">
+  <div class="section-header kanji-bg">
+    <h2>漢 Kanji</h2>
+    <p>Essential characters — numbers, nature, people, and everyday words!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Each kanji has an <em>on'yomi</em> (Chinese-derived reading) and a <em>kun'yomi</em> (Japanese reading).
+    Click any kanji card to see its readings and an example word!
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-group="kanji-tabs" data-tab="kanji-browse">📖 Browse</button>
+    <button class="tab-btn"        data-group="kanji-tabs" data-tab="kanji-fc">🃏 Flashcards</button>
+    <button class="tab-btn"        data-group="kanji-tabs" data-tab="kanji-quiz-tab">🎯 Quiz</button>
+  </div>
+
+  <div id="kanji-browse" class="tab-panel kanji-tabs active">
+    <div id="kanji-grid"></div>
+  </div>
+
+  <div id="kanji-fc" class="tab-panel kanji-tabs">
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="kanji-card" onclick="flipCard('kanji')">
+        <div class="fc-inner">
+          <div class="fc-front" id="kanji-fc-front"></div>
+          <div class="fc-back"  id="kanji-fc-back"></div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="btn btn-secondary" onclick="prevCard('kanji')">← Prev</button>
+        <span class="fc-counter" id="kanji-fc-counter">1 / 50</span>
+        <button class="btn btn-primary"   onclick="nextCard('kanji')">Next →</button>
+      </div>
+      <button class="btn btn-outline" onclick="shuffleCards('kanji')">🔀 Shuffle</button>
+    </div>
+  </div>
+
+  <div id="kanji-quiz-tab" class="tab-panel kanji-tabs">
+    <div class="quiz-wrap">
+      <div id="kanji-quiz-inner"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     WORDS
+══════════════════════════════════════════════════════════ -->
+<section id="words" class="section">
+  <div class="section-header words-bg">
+    <h2>📝 Vocabulary</h2>
+    <p>Build your Japanese word bank — grouped by topic!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Japanese pronunciation is very consistent — once you know hiragana, you can read every word!
+    The reading shown is <em>romaji</em> (Roman letters) to help you get started.
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-group="vocab-tabs" data-tab="vocab-browse">🗂️ Browse</button>
+    <button class="tab-btn"        data-group="vocab-tabs" data-tab="vocab-fc">🃏 Flashcards</button>
+  </div>
+
+  <div id="vocab-browse" class="tab-panel vocab-tabs active">
+    <div class="filter-bar" id="vocab-filter"></div>
+    <div id="vocab-grid"></div>
+  </div>
+
+  <div id="vocab-fc" class="tab-panel vocab-tabs">
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="vocab-card" onclick="flipCard('vocab')">
+        <div class="fc-inner">
+          <div class="fc-front" id="vocab-fc-front"></div>
+          <div class="fc-back"  id="vocab-fc-back"></div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="btn btn-secondary" onclick="prevCard('vocab')">← Prev</button>
+        <span class="fc-counter" id="vocab-fc-counter">1 / 80</span>
+        <button class="btn btn-primary"   onclick="nextCard('vocab')">Next →</button>
+      </div>
+      <button class="btn btn-outline" onclick="shuffleCards('vocab')">🔀 Shuffle</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     GRAMMAR
+══════════════════════════════════════════════════════════ -->
+<section id="grammar" class="section">
+  <div class="section-header grammar-bg">
+    <h2>📖 Grammar</h2>
+    <p>Understand how Japanese sentences work — it's different, and that's exciting!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Don't worry about memorizing everything at once. Start with basic sentences using
+    <strong>は・を・です</strong>, then add more particles as you go. Click any card to expand it!
+  </div>
+
+  <div id="grammar-list"></div>
+  <div id="comm-tips-container"></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     PHRASES
+══════════════════════════════════════════════════════════ -->
+<section id="phrases" class="section">
+  <div class="section-header phrases-bg">
+    <h2>💬 Conversation Phrases</h2>
+    <p>Real phrases for real situations — greetings, questions, shopping, feelings and more!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Japanese is very context-dependent — often the subject is dropped!
+    "食べます" can mean "I eat", "you eat", "they eat" depending on context.
+    Politeness level matters too — these phrases use the standard polite form (丁寧語).
+  </div>
+
+  <div class="filter-bar" id="phrase-filter"></div>
+  <div id="phrases-list"></div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     LESSONS
+══════════════════════════════════════════════════════════ -->
+<section id="lessons" class="section">
+  <div class="section-header lessons-bg">
+    <h2>📚 My Lessons</h2>
+    <p>Real lessons from class — vocab, sentence patterns, and examples!</p>
+  </div>
+
+  <div class="tip-banner">
+    <strong>💡 Tip:</strong> Each card shows vocabulary, sentence patterns, and example sentences from your actual lessons.
+    Click any lesson card to expand it!
+  </div>
+
+  <div id="lessons-list"></div>
+</section>
+
+</main>
+
+<!-- ── Kana Detail Modal ──────────────────────────────────── -->
+<div class="modal-overlay" id="kana-modal">
+  <div class="modal-box">
+    <button class="modal-close">✕</button>
+    <div id="modal-char"></div>
+    <div id="modal-romaji"></div>
+    <div id="modal-example"></div>
+  </div>
+</div>
+
+<!-- ── Kanji Detail Modal ─────────────────────────────────── -->
+<div class="modal-overlay" id="kanji-modal">
+  <div class="modal-box">
+    <button class="modal-close">✕</button>
+    <div id="km-char"></div>
+    <div id="km-reading"></div>
+    <div id="km-meaning"></div>
+    <div id="km-example"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
